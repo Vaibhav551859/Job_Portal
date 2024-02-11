@@ -11,7 +11,7 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userID;
+    private long userID;
     private String firstname;
     private String Lastname;
     private String password;
@@ -20,11 +20,11 @@ public class UserModel {
     @Enumerated(EnumType.STRING)
     private Role userRole;
 
-    public int getUserID() {
+    public long getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(long userID) {
         this.userID = userID;
     }
 

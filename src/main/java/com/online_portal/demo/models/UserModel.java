@@ -1,9 +1,12 @@
 package com.online_portal.demo.models;
 
+import com.online_portal.demo.enums.Role;
 import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @Table(name="users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class UserModel {
 
     @Id
@@ -14,6 +17,54 @@ public class UserModel {
     private String password;
     private String email;
 
-    p
+    @Enumerated(EnumType.STRING)
+    private Role userRole;
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return Lastname;
+    }
+
+    public void setLastname(String lastname) {
+        Lastname = lastname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Role getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(Role userRole) {
+        this.userRole = userRole;
+    }
 }

@@ -13,7 +13,7 @@ public class JobSeekerModel extends  UserModel{
     private Qualification qualification;
     private List<String> skills;
    private int exp;
-    @ManyToMany(mappedBy = "jobSeekers")
+    @ManyToMany
     private List<JobModel> jobs;
     public JobSeekerModel(){
         this.setUserRole(Role.JOB_SEEKER);

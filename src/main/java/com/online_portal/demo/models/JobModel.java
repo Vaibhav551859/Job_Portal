@@ -31,7 +31,7 @@ public class JobModel {
     @ManyToOne(fetch = FetchType.LAZY)
     private EmployerModel employer;
 
-    @ManyToMany(mappedBy = "jobs")
+    @ManyToMany
     private List<JobSeekerModel> jobSeekers;
 
     private Timestamp publishDate;

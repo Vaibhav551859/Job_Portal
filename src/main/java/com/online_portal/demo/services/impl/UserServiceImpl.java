@@ -1,6 +1,6 @@
-package com.online_portal.demo.Services.impl;
+package com.online_portal.demo.services.impl;
 
-import com.online_portal.demo.Services.UserService;
+import com.online_portal.demo.services.UserService;
 import com.online_portal.demo.models.UserModel;
 import org.springframework.stereotype.Service;
 

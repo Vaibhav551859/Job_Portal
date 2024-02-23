@@ -1,4 +1,4 @@
-package com.online_portal.demo.Services;
+package com.online_portal.demo.services;
 
 import com.online_portal.demo.models.UserModel;
 

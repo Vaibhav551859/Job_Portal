@@ -1,14 +1,19 @@
-package com.online_portal.demo.Services.impl;
+package com.online_portal.demo.services.impl;
 
-import com.online_portal.demo.Services.JobSeekerService;
+import com.online_portal.demo.services.JobSeekerService;
 import com.online_portal.demo.models.JobModel;
 import com.online_portal.demo.models.UserModel;
+
+import com.online_portal.demo.repository.JobRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 
-public class JobSeekerServiceImpl implements JobSeekerService {
+public class JobSeekerServiceImpl extends UserServiceImpl implements JobSeekerService {
+    @Autowired
+    private JobRepository jobRepository;
     @Override
     public void applyForJob(long jobID, long userID, String resume) {
 
@@ -16,17 +21,17 @@ public class JobSeekerServiceImpl implements JobSeekerService {
 
     @Override
     public List<JobModel> fetchAllJobs() {
-        return null;
+        return jobRepository.findAll();
     }
 
     @Override
-    public List<JobModel> fetchJobByID(long jobID) {
-        return null;
+    public JobModel fetchJobByID(long jobID) {
+        return jobRepository.findById(jobID);
     }
 
     @Override
     public List<JobModel> fetchJobByDesignation(String designation) {
-        return null;
+        return jobRepository.findByDesignation(designation);
     }
 
     @Override
@@ -46,16 +51,9 @@ public class JobSeekerServiceImpl implements JobSeekerService {
 
     @Override
     public List<JobModel> fetchJobsByExperience(int expYrs) {
-        return null;
+        List<JobModel> jobs= jobRepository.findByExp(expYrs);
+        return jobs;
     }
 
-    @Override
-    public void createUser(UserModel user) {
 
-    }
-
-    @Override
-    public void updateProfile(long userID) {
-
-    }
 }

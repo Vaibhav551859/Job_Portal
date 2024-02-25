@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 
 public class JobSeekerServiceImpl extends UserServiceImpl implements JobSeekerService {
@@ -26,7 +28,13 @@ public class JobSeekerServiceImpl extends UserServiceImpl implements JobSeekerSe
 
     @Override
     public JobModel fetchJobByID(long jobID) {
-        return jobRepository.findById(jobID);
+        JobModel job=null;
+        Optional<JobModel> byId = jobRepository.findById(jobID);
+        if(byId.isPresent())
+        {
+            job=byId.get();
+        }
+        return job;
     }
 
     @Override

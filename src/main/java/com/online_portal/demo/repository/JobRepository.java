@@ -9,4 +9,5 @@ public interface JobRepository extends JpaRepository<JobModel,Long> {
     List<JobModel> findByDesignation(String designation);
 
     List<JobModel> findByExp(int expYrs);
+    List<JobModel> findBySkill(List<String> skills);
 }

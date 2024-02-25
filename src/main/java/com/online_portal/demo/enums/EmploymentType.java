@@ -27,5 +27,3 @@ public enum EmploymentType {
         return this.name;
     }
 }
-
-

@@ -2,23 +2,23 @@ package com.online_portal.demo.services.impl;
 
 import com.online_portal.demo.services.JobSeekerService;
 import com.online_portal.demo.models.JobModel;
-import com.online_portal.demo.models.UserModel;
 
 import com.online_portal.demo.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+import java.util.Optional;
 
+@Service
 public class JobSeekerServiceImpl extends UserServiceImpl implements JobSeekerService {
     @Autowired
     private JobRepository jobRepository;
+
     @Override
-    public void applyForJob(long jobID, long userID, String resume) {
-
+    public void applyForJob(long jobID, long userID) {
+        fetchJobByID(jobID);
     }
-
     @Override
     public List<JobModel> fetchAllJobs() {
         return jobRepository.findAll();
@@ -26,7 +26,12 @@ public class JobSeekerServiceImpl extends UserServiceImpl implements JobSeekerSe
 
     @Override
     public JobModel fetchJobByID(long jobID) {
-        return jobRepository.findById(jobID);
+        JobModel job=null;
+        Optional<JobModel> op=jobRepository.findById(jobID);
+        if(op.isPresent()){
+            job= op.get();
+        }
+        return job;
     }
 
     @Override
@@ -36,11 +41,17 @@ public class JobSeekerServiceImpl extends UserServiceImpl implements JobSeekerSe
 
     @Override
     public List<JobModel> fetchJobBySkills(List<String> skills) {
-        return null;
+        List<JobModel> skill=null;
+        Optional<JobModel> BySkill=jobRepository.findBySkill(skills);
+        if(BySkill.isPresent()){
+            skill.add(BySkill.get());
+        }
+        return skill;
     }
 
     @Override
     public List<JobModel> fetchJobsByCompany(String company) {
+
         return null;
     }
 

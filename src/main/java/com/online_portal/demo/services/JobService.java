@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface JobService {
     void postNewJob(JobModel job);
-    void updateJob(long jobID);
+    void updateJob(JobModel job);
     void deleteJob(long jobID);
     List<JobModel> fetchJobByUser(long userID);
 

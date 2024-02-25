@@ -4,6 +4,8 @@ import com.online_portal.demo.enums.Role;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.util.List;
+
 @Entity
 @Table(name="users")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -16,6 +18,16 @@ public class UserModel {
     private String Lastname;
     private String password;
     private String email;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user",orphanRemoval = true)
+    private List<JobModel> jobs;
+
+    public List<JobModel> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<JobModel> jobs) {
+        this.jobs = jobs;
+    }
 
     @Enumerated(EnumType.STRING)
     private Role userRole;

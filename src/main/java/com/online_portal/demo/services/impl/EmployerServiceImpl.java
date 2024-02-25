@@ -12,5 +12,4 @@ public class EmployerServiceImpl extends UserServiceImpl implements EmployerServ
 
     }
 
-
 }

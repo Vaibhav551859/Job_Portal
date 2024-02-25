@@ -30,6 +30,8 @@ public class JobModel {
     private EmploymentType employmentType;
     @ManyToOne(fetch = FetchType.LAZY)
     private EmployerModel employer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UserModel user;
 
     @ManyToMany
     private List<JobSeekerModel> jobSeekers;

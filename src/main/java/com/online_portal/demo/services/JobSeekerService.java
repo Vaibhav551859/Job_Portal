@@ -5,7 +5,10 @@ import com.online_portal.demo.models.JobModel;
 import java.util.List;
 
 public interface JobSeekerService extends UserService{
-    void applyForJob(long jobID, long userID, String resume);
+
+
+    void applyForJob(long jobID, long userID);
+
     List<JobModel> fetchAllJobs();
     JobModel fetchJobByID(long jobID);
     List<JobModel> fetchJobByDesignation(String designation);

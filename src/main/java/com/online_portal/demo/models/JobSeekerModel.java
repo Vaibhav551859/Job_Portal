@@ -13,6 +13,8 @@ public class JobSeekerModel extends  UserModel{
     private Qualification qualification;
     private List<String> skills;
    private int exp;
+   private String resume;
+
     @ManyToMany
     private List<JobModel> jobs;
     public JobSeekerModel(){
@@ -49,5 +51,12 @@ public class JobSeekerModel extends  UserModel{
 
     public void setExp(int exp) {
         this.exp = exp;
+    }
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 }
